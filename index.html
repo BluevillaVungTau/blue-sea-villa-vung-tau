@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Blue Sea Villa Vũng Tàu | Báo Giá & Quy Định</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Thêm thư viện AOS cho hiệu ứng cuộn -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!-- Thêm thư viện Swiper cho hiệu ứng cuộn ảnh (Slider/Carousel) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Be Vietnam Pro',sans-serif;
+}
+
+body{
+    background: linear-gradient(rgba(245, 249, 252, 0.75), rgba(245, 249, 252, 0.85)), 
+                url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+    background-size: cover;
+    color:#222;
+    line-height:1.6;
+}
+
+/*================ HEADER =================*/
+header{
+    background:linear-gradient(135deg, rgba(0,119,182,0.95), rgba(0,180,216,0.95));
+    color:white;
+    padding:45px 20px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+}
+
+.logo{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:auto;
+    font-size:14px;
+    color:#888;
+    border:5px solid rgba(255,255,255,.4);
+    margin-bottom:20px;
+    overflow:hidden;
+}
+
+.logo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+header h1{
+    font-size:42px;
+    font-weight:800;
+    margin-bottom:10px;
+}
+
+header p{
+    font-size:18px;
+    opacity:.95;
+}
+
+.phone{
+    margin-top:20px;
+    font-size:32px;
+    font-weight:700;
+    background:#fff;
+    color:#0077b6;
+    display:inline-block;
+    padding:12px 30px;
+    border-radius:50px;
+}
+
+/*================ MAIN =================*/
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+/*================ GALLERY SLIDER =================*/
+.gallery-section {
+    margin-bottom: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+.gallery-section .title-wrapper {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.gallery-section h2 {
+    font-size: 30px;
+    color: #0077b6;
+    border-bottom: 3px solid #00b4d8;
+    padding-bottom: 12px;
+    display: inline-block;
+}
+
+.swiper {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media(min-width: 768px) {
+    .swiper-slide {
+        width: 500px;
+        height: 350px;
+    }
+}
+
+/* Tùy chỉnh màu nút điều hướng của slider */
+.swiper-button-next, .swiper-button-prev {
+    color: #0077b6 !important;
+}
+.swiper-pagination-bullet-active {
+    background: #0077b6 !important;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.card{
+    background:rgba(255, 255, 255, 0.95);
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.card h2{
+    font-size:30px;
+    margin-bottom:25px;
+    color:#0077b6;
+    border-bottom:3px solid #00b4d8;
+    padding-bottom:12px;
+}
+
+/*================ TABLE =================*/
+table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:17px;
+}
+
+th{
+    background:#0077b6;
+    color:white;
+    padding:15px;
+}
+
+td{
+    padding:15px;
+    border-bottom:1px solid #eee;
+}
+
+tr:hover{
+    background:#f2fbff;
+}
+
+/*================ RULE =================*/
+.rule{
+    display:flex;
+    gap:12px;
+    margin-bottom:20px;
+    align-items:flex-start;
+}
+
+.icon{
+    width:34px;
+    height:34px;
+    background:#00b4d8;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    flex-shrink:0;
+}
+
+/*================ INFO =================*/
+.info{
+    margin-top:35px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.info-box{
+    background:rgba(255, 255, 255, 0.95);
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.info-box h3{
+    color:#0077b6;
+    margin-bottom:15px;
+}
+
+.map-link {
+    color: #0077b6;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.map-link:hover {
+    color: #d62828;
+    text-decoration: underline;
+}
+.footer-map-link {
+    color: #00b4d8;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-map-link:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/*================ CTA =================*/
+.cta{
+    margin-top:40px;
+    text-align:center;
+}
+
+.btn{
+    display:inline-block;
+    margin:10px;
+    padding:16px 35px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:18px;
+    transition:.3s;
+}
+
+.call{
+    background:#28a745;
+    color:white;
+}
+
+.call:hover{
+    background:#22863a;
+    transform:translateY(-3px);
+}
+
+.zalo{
+    background:#0068ff;
+    color:white;
+}
+
+.zalo:hover{
+    transform:translateY(-3px);
+}
+
+/*================ FOOTER =================*/
+footer{
+    margin-top:60px;
+    background:rgba(0, 48, 73, 0.95);
+    color:white;
+    padding:35px;
+    text-align:center;
+}
+
+footer p{
+    margin:8px 0;
+}
+
+/*================ MOBILE =================*/
+@media(max-width:900px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+    header h1{
+        font-size:32px;
+    }
+    .phone{
+        font-size:24px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header data-aos="fade-down" data-aos-duration="1000">
+    <div class="logo">
+        <!-- Đã gắn file ảnh logo -->
+        <img src="ảnh logo.png" alt="Blue Sea Villa Logo">
+    </div>
+    <h1>BLUE SEA VILLA VŨNG TÀU</h1>
+    <p>Cho thuê Villa nguyên căn cao cấp • Không gian riêng tư • Phù hợp nghỉ dưỡng, gia đình, bạn bè và tổ chức sự kiện</p>
+    <div class="phone">
+        📞 0327 460 555
+    </div>
+</header>
+
+<div class="container">
+
+    <!--=================== KHÔNG GIAN VILLA (SLIDER ẢNH) ===================-->
+    <div class="gallery-section" data-aos="fade-up" data-aos-duration="1000">
+        <div class="title-wrapper">
+            <h2>📸 KHÔNG GIAN VILLA</h2>
+        </div>
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <!-- Danh sách 11 ảnh lấy đúng theo đường dẫn thư mục và tên file bạn tải lên -->
+                <div class="swiper-slide"><img src="ảnh villa blue sea/ảnh 1.jpg" alt="Villa 1"></div>
+                <div class="swiper-slide"><img src="ảnh villa blue sea/ảnh 2.jpg" alt="Villa 2"></div>
+                <div class="swiper-slide"><img src="ảnh villa blue sea/ảnh 3.jpg" alt="Villa 3"></div>
+                <div class="swiper-slide"><img src="ảnh villa blue sea/ảnh 4.jpg" alt="Villa 4"></div>
+                <div class="swiper-slide"><img src="ảnh villa blue sea/ảnh 5.jpg" alt="Villa 5"></div>
+                <div class="swiper-slide"><img src="ảnh villa blue sea/ảnh 6.jpg" alt="Villa 6"></div>
+                <div class="swiper-slide"><img src="ảnh villa blue sea/ảnh 7.jpg" alt="Villa 7"></div>
+                <div class="swiper-slide"><img src="ảnh villa blue sea/ảnh 8.jpg" alt="Villa 8"></div>
+                <div class="swiper-slide"><img src="ảnh villa blue sea/ảnh 9.jpg" alt="Villa 9"></div>
+                <div class="swiper-slide"><img src="ảnh villa blue sea/ảnh 10.jpg" alt="Villa 10"></div>
+                <div class="swiper-slide"><img src="ảnh villa blue sea/ảnh 11.jpg" alt="Villa 11"></div>
+            </div>
+            <!-- Pagination (Dấu chấm) & Navigation (Nút mũi tên) -->
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+
+    <div class="grid">
+        <!--=================== BẢNG GIÁ ===================-->
+        <div class="card" data-aos="fade-right" data-aos-duration="1000">
+            <h2>📋 BÁO GIÁ & DỊCH VỤ</h2>
+            <table>
+                <tr>
+                    <th>Hạng mục</th>
+                    <th>Thông tin</th>
+                </tr>
+                <tr>
+                    <td>🏡 Hình thức thuê</td>
+                    <td>Thuê trọn gói nguyên căn</td>
+                </tr>
+                <tr>
+                    <td>🛏 Phòng ngủ</td>
+                    <td>07 phòng ngủ</td>
+                </tr>
+                <tr>
+                    <td>🛌 Phòng TX</td>
+                    <td>01 phòng TX</td>
+                </tr>
+                <tr>
+                    <td>🛏 Giường</td>
+                    <td>Giường đôi</td>
+                </tr>
+                <tr>
+                    <td>👨‍👩‍👧‍👦 Sức chứa</td>
+                    <td>Tối đa 30 khách</td>
+                </tr>
+                <tr>
+                    <td>💰 Giá ngày thường</td>
+                    <td><strong style="color:#d62828;">7.000.000 VNĐ / đêm</strong></td>
+                </tr>
+                <tr>
+                    <td>🎉 Thứ 6 & Thứ 7</td>
+                    <td><strong style="color:#d62828;">15.000.000 VNĐ / đêm</strong></td>
+                </tr>
+                <tr>
+                    <td>🎆 Lễ - Tết</td>
+                    <td><strong style="color:#d62828;">18.000.000 VNĐ / đêm</strong></td>
+                </tr>
+            </table>
+        </div>
+
+        <!--=================== NỘI QUY ===================-->
+        <div class="card" data-aos="fade-left" data-aos-duration="1000">
+            <h2>📜 QUY ĐỊNH KHI THUÊ VILLA</h2>
+            <div class="rule">
+                <div class="icon">✓</div>
+                <div>Giới hạn tối đa <strong>30 khách</strong>. Phụ thu theo quy định nếu vượt quá số lượng.</div>
+            </div>
+            <div class="rule">
+                <div class="icon">✓</div>
+                <div>Không sử dụng chất cấm, chất nổ hoặc các vật liệu nguy hiểm trong khuôn viên villa.</div>
+            </div>
+            <div class="rule">
+                <div class="icon">✓</div>
+                <div>Tuyệt đối không tổ chức các hoạt động vi phạm pháp luật dưới mọi hình thức.</div>
+            </div>
+            <div class="rule">
+                <div class="icon">✓</div>
+                <div>Khách vui lòng giữ gìn vệ sinh chung trong suốt thời gian lưu trú.</div>
+            </div>
+            <div class="rule">
+                <div class="icon">✓</div>
+                <div>Villa áp dụng <strong>phí vệ sinh đặc biệt</strong> nếu khu vực bàn giao quá bẩn hoặc phát sinh nhiều rác.</div>
+            </div>
+            <div class="rule">
+                <div class="icon">✓</div>
+                <div>Khách tự bảo quản tài sản cá nhân trong thời gian lưu trú.</div>
+            </div>
+            <div class="rule">
+                <div class="icon">✓</div>
+                <div>Bồi thường theo giá trị thực tế nếu làm hư hỏng trang thiết bị của villa.</div>
+            </div>
+            <div class="rule">
+                <div class="icon">✓</div>
+                <div>Vui lòng tuân thủ giờ nhận phòng và trả phòng theo quy định.</div>
+            </div>
+        </div>
+    </div>
+
+    <!--================ THÔNG TIN =================-->
+    <div class="info">
+        <div class="info-box" data-aos="fade-up" data-aos-delay="100">
+            <h3>🏠 Tiện nghi</h3>
+            <ul>
+                <li>✔ Villa nguyên căn</li>
+                <li>✔ 07 phòng ngủ</li>
+                <li>✔ Phòng TX</li>
+                <li>✔ Giường đôi</li>
+                <li>✔ Không gian riêng tư</li>
+                <li>✔ Phù hợp nhóm đông</li>
+            </ul>
+        </div>
+        <div class="info-box" data-aos="fade-up" data-aos-delay="200">
+            <h3>🎯 Phù hợp cho</h3>
+            <ul>
+                <li>Gia đình</li>
+                <li>Team Building</li>
+                <li>Sinh nhật</li>
+                <li>Họp mặt bạn bè</li>
+                <li>Du lịch nghỉ dưỡng</li>
+            </ul>
+        </div>
+        <div class="info-box" data-aos="fade-up" data-aos-delay="300">
+            <h3>📞 Liên hệ đặt phòng</h3>
+            <p><strong>Blue Sea Villa Vũng Tàu</strong></p>
+            <p>📍 Địa chỉ: <a href="https://maps.app.goo.gl/U1B7BFDevx8MnnVTA" target="_blank" class="map-link">126/9 Trần Phú, Phường 5, TP. Vũng Tàu, Bà Rịa - Vũng Tàu</a></p>
+            <p style="margin-top: 10px;">Hotline:</p>
+            <h2 style="color:#d62828;">0327 460 555</h2>
+            <p>Hỗ trợ tư vấn 24/7</p>
+        </div>
+    </div>
+
+    <div class="cta" data-aos="zoom-in" data-aos-delay="400">
+        <a href="tel:0327460555" class="btn call">📞 GỌI ĐẶT PHÒNG</a>
+        <a href="https://zalo.me/0327460555" target="_blank" class="btn zalo">💬 CHAT ZALO</a>
+    </div>
+</div>
+
+<footer data-aos="fade-up">
+    <h2>BLUE SEA VILLA VŨNG TÀU</h2>
+    <p>Cho thuê Villa nguyên căn cao cấp</p>
+    <p>📍 Địa chỉ: <a href="https://maps.app.goo.gl/U1B7BFDevx8MnnVTA" target="_blank" class="footer-map-link">126/9 Trần Phú, Phường 5, TP. Vũng Tàu, Bà Rịa - Vũng Tàu</a></p>
+    <p>Hotline: <strong>0327 460 555</strong></p>
+    <p>Xin cảm ơn Quý khách đã tin tưởng lựa chọn Blue Sea Villa.</p>
+</footer>
+
+<!-- Thêm Script khởi tạo AOS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- Thêm Script khởi tạo Swiper -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+    // Kích hoạt hiệu ứng xuất hiện khi cuộn trang
+    AOS.init({
+        once: true, 
+        offset: 50, 
+        duration: 800
+    });
+
+    // Kích hoạt hiệu ứng Slider cuộn ảnh ngang đẹp mắt (Coverflow effect)
+    var swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        loop: true, // Lặp lại vô tận
+        coverflowEffect: {
+            rotate: 15,    // Góc nghiêng của ảnh 2 bên
+            stretch: 0,
+            depth: 100,    // Độ sâu của ảnh
+            modifier: 1,
+            slideShadows: true,
+        },
+        autoplay: {
+            delay: 3000,   // Tự động cuộn sau 3 giây
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
+
+</body>
+</html>
