@@ -144,7 +144,6 @@ header p{
     }
 }
 
-/* Tùy chỉnh màu nút điều hướng của slider */
 .swiper-button-next, .swiper-button-prev {
     color: #0077b6 !important;
 }
@@ -152,9 +151,11 @@ header p{
     background: #0077b6 !important;
 }
 
+/*================ GRID 3 CỘT MỚI =================*/
 .grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
+    /* Tự động chia 3 cột trên màn hình lớn, thu gọn 1 cột trên điện thoại */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap:30px;
 }
 
@@ -171,6 +172,58 @@ header p{
     color:#0077b6;
     border-bottom:3px solid #00b4d8;
     padding-bottom:12px;
+}
+
+/*================ BẢNG GIÁ VIP (PRICING CARD) =================*/
+.pricing-card {
+    background: linear-gradient(145deg, #001f3f, #004080) !important; /* Xanh navy đậm sang trọng */
+    color: white;
+    border: 2px solid #d4af37; /* Viền vàng gold */
+    position: relative;
+    overflow: hidden;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 31, 63, 0.4);
+}
+
+/* Hiệu ứng ánh sáng lướt qua thẻ báo giá */
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent);
+    transform: skewX(-25deg);
+    animation: shine 4s infinite;
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    20% { left: 200%; }
+    100% { left: 200%; }
+}
+
+.pricing-card h2 {
+    color: #d4af37 !important; /* Chữ vàng gold */
+    border-bottom: 3px solid #d4af37 !important;
+}
+
+.pricing-card table th {
+    background: rgba(212, 175, 55, 0.2);
+    color: #fbc02d;
+}
+
+.pricing-card table td {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.pricing-card table tr:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+.price-text {
+    color: #ffd700; /* Vàng sáng chói cho mức giá */
+    font-weight: 800;
+    font-size: 1.15em;
 }
 
 /*================ TABLE =================*/
@@ -304,20 +357,6 @@ footer{
 footer p{
     margin:8px 0;
 }
-
-/*================ MOBILE =================*/
-@media(max-width:900px){
-    .grid{
-        grid-template-columns:1fr;
-    }
-    header h1{
-        font-size:32px;
-    }
-    .phone{
-        font-size:24px;
-    }
-}
-
 </style>
 </head>
 
@@ -325,7 +364,6 @@ footer p{
 
 <header data-aos="fade-down" data-aos-duration="1000">
     <div class="logo">
-        <!-- Đã gắn file ảnh logo -->
         <img src="ảnh logo.png" alt="Blue Sea Villa Logo">
     </div>
     <h1>BLUE SEA VILLA VŨNG TÀU</h1>
@@ -337,15 +375,12 @@ footer p{
 
 <div class="container">
 
-    <!--=================== KHÔNG GIAN VILLA (SLIDER ẢNH) ===================-->
     <div class="gallery-section" data-aos="fade-up" data-aos-duration="1000">
         <div class="title-wrapper">
             <h2>📸 KHÔNG GIAN VILLA</h2>
         </div>
-        <!-- Swiper -->
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <!-- Danh sách 11 ảnh lấy đúng theo đường dẫn thư mục và tên file bạn tải lên -->
                 <div class="swiper-slide"><img src="ảnh villa blue sea/ảnh 1.jpg" alt="Villa 1"></div>
                 <div class="swiper-slide"><img src="ảnh villa blue sea/ảnh 2.jpg" alt="Villa 2"></div>
                 <div class="swiper-slide"><img src="ảnh villa blue sea/ảnh 3.jpg" alt="Villa 3"></div>
@@ -358,25 +393,26 @@ footer p{
                 <div class="swiper-slide"><img src="ảnh villa blue sea/ảnh 10.jpg" alt="Villa 10"></div>
                 <div class="swiper-slide"><img src="ảnh villa blue sea/ảnh 11.jpg" alt="Villa 11"></div>
             </div>
-            <!-- Pagination (Dấu chấm) & Navigation (Nút mũi tên) -->
             <div class="swiper-pagination"></div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
     </div>
 
+    <!-- KHU VỰC 3 CỘT (THÔNG TIN - BÁO GIÁ - NỘI QUY) -->
     <div class="grid">
-        <!--=================== BẢNG GIÁ ===================-->
-        <div class="card" data-aos="fade-right" data-aos-duration="1000">
-            <h2>📋 BÁO GIÁ & DỊCH VỤ</h2>
+        
+        <!-- Ô 1: THÔNG TIN VILLA -->
+        <div class="card" data-aos="fade-up" data-aos-duration="1000">
+            <h2>🏨 THÔNG TIN VILLA</h2>
             <table>
                 <tr>
                     <th>Hạng mục</th>
-                    <th>Thông tin</th>
+                    <th>Chi tiết</th>
                 </tr>
                 <tr>
                     <td>🏡 Hình thức thuê</td>
-                    <td>Thuê trọn gói nguyên căn</td>
+                    <td>Nguyên căn</td>
                 </tr>
                 <tr>
                     <td>🛏 Phòng ngủ</td>
@@ -394,60 +430,59 @@ footer p{
                     <td>👨‍👩‍👧‍👦 Sức chứa</td>
                     <td>Tối đa 30 khách</td>
                 </tr>
+            </table>
+        </div>
+
+        <!-- Ô 2: BẢNG GIÁ ĐẶT PHÒNG (VIP) -->
+        <div class="card pricing-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+            <h2>💎 BẢNG GIÁ ĐẶT PHÒNG</h2>
+            <table>
                 <tr>
-                    <td>💰 Giá ngày thường</td>
-                    <td><strong style="color:#d62828;">7.000.000 VNĐ / đêm</strong></td>
+                    <th>Thời gian</th>
+                    <th>Mức giá</th>
+                </tr>
+                <tr>
+                    <td>💰 Ngày thường</td>
+                    <td class="price-text">7.000.000đ / đêm</td>
                 </tr>
                 <tr>
                     <td>🎉 Thứ 6 & Thứ 7</td>
-                    <td><strong style="color:#d62828;">15.000.000 VNĐ / đêm</strong></td>
+                    <td class="price-text">15.000.000đ / đêm</td>
                 </tr>
                 <tr>
                     <td>🎆 Lễ - Tết</td>
-                    <td><strong style="color:#d62828;">18.000.000 VNĐ / đêm</strong></td>
+                    <td class="price-text">18.000.000đ / đêm</td>
                 </tr>
             </table>
         </div>
 
-        <!--=================== NỘI QUY ===================-->
-        <div class="card" data-aos="fade-left" data-aos-duration="1000">
-            <h2>📜 QUY ĐỊNH KHI THUÊ VILLA</h2>
+        <!-- Ô 3: NỘI QUY -->
+        <div class="card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <h2>📜 QUY ĐỊNH KHI THUÊ</h2>
             <div class="rule">
                 <div class="icon">✓</div>
-                <div>Giới hạn tối đa <strong>30 khách</strong>. Phụ thu theo quy định nếu vượt quá số lượng.</div>
+                <div>Giới hạn tối đa <strong>30 khách</strong>. Phụ thu theo quy định nếu vượt.</div>
             </div>
             <div class="rule">
                 <div class="icon">✓</div>
-                <div>Không sử dụng chất cấm, chất nổ hoặc các vật liệu nguy hiểm trong khuôn viên villa.</div>
+                <div>Không sử dụng chất cấm, vật liệu nổ trong khuôn viên.</div>
             </div>
             <div class="rule">
                 <div class="icon">✓</div>
-                <div>Tuyệt đối không tổ chức các hoạt động vi phạm pháp luật dưới mọi hình thức.</div>
+                <div>Tuyệt đối không vi phạm pháp luật dưới mọi hình thức.</div>
             </div>
             <div class="rule">
                 <div class="icon">✓</div>
-                <div>Khách vui lòng giữ gìn vệ sinh chung trong suốt thời gian lưu trú.</div>
+                <div>Áp dụng <strong>phí vệ sinh đặc biệt</strong> nếu giao lại quá bẩn.</div>
             </div>
             <div class="rule">
                 <div class="icon">✓</div>
-                <div>Villa áp dụng <strong>phí vệ sinh đặc biệt</strong> nếu khu vực bàn giao quá bẩn hoặc phát sinh nhiều rác.</div>
-            </div>
-            <div class="rule">
-                <div class="icon">✓</div>
-                <div>Khách tự bảo quản tài sản cá nhân trong thời gian lưu trú.</div>
-            </div>
-            <div class="rule">
-                <div class="icon">✓</div>
-                <div>Bồi thường theo giá trị thực tế nếu làm hư hỏng trang thiết bị của villa.</div>
-            </div>
-            <div class="rule">
-                <div class="icon">✓</div>
-                <div>Vui lòng tuân thủ giờ nhận phòng và trả phòng theo quy định.</div>
+                <div>Tự bảo quản tài sản. Bồi thường nếu làm hỏng thiết bị.</div>
             </div>
         </div>
+        
     </div>
 
-    <!--================ THÔNG TIN =================-->
     <div class="info">
         <div class="info-box" data-aos="fade-up" data-aos-delay="100">
             <h3>🏠 Tiện nghi</h3>
@@ -486,7 +521,7 @@ footer p{
     </div>
 </div>
 
-<footer data-aos="fade-up">
+<footer>
     <h2>BLUE SEA VILLA VŨNG TÀU</h2>
     <p>Cho thuê Villa nguyên căn cao cấp</p>
     <p>📍 Địa chỉ: <a href="https://maps.app.goo.gl/U1B7BFDevx8MnnVTA" target="_blank" class="footer-map-link">126/9 Trần Phú, Phường 5, TP. Vũng Tàu, Bà Rịa - Vũng Tàu</a></p>
@@ -494,35 +529,31 @@ footer p{
     <p>Xin cảm ơn Quý khách đã tin tưởng lựa chọn Blue Sea Villa.</p>
 </footer>
 
-<!-- Thêm Script khởi tạo AOS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<!-- Thêm Script khởi tạo Swiper -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
-    // Kích hoạt hiệu ứng xuất hiện khi cuộn trang
     AOS.init({
         once: true, 
         offset: 50, 
         duration: 800
     });
 
-    // Kích hoạt hiệu ứng Slider cuộn ảnh ngang đẹp mắt (Coverflow effect)
     var swiper = new Swiper(".mySwiper", {
         effect: "coverflow",
         grabCursor: true,
         centeredSlides: true,
         slidesPerView: "auto",
-        loop: true, // Lặp lại vô tận
+        loop: true,
         coverflowEffect: {
-            rotate: 15,    // Góc nghiêng của ảnh 2 bên
+            rotate: 15,
             stretch: 0,
-            depth: 100,    // Độ sâu của ảnh
+            depth: 100,
             modifier: 1,
             slideShadows: true,
         },
         autoplay: {
-            delay: 3000,   // Tự động cuộn sau 3 giây
+            delay: 3000,
             disableOnInteraction: false,
         },
         pagination: {
